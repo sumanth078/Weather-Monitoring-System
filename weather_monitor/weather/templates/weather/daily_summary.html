@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Summary</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather/styles.css' %}">
+</head>
+<body>
+    <h1>Daily Weather Summary</h1>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Date</th>
+            <th>Avg Temp (°C)</th>
+            <th>Max Temp (°C)</th>
+            <th>Min Temp (°C)</th>
+            <th>Dominant Weather</th>
+        </tr>
+        {% for summary in summaries %}
+        <tr>
+            <td>{{ summary.city_name }}</td>
+            <td>{{ summary.date }}</td>
+            <td>{{ summary.avg_temp }}</td>
+            <td>{{ summary.max_temp }}</td>
+            <td>{{ summary.min_temp }}</td>
+            <td>{{ summary.dominant_weather }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

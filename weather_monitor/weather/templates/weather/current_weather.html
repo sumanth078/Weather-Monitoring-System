@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Weather</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather/styles.css' %}">
+</head>
+<body>
+    <h1>Current Weather</h1>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Main</th>
+            <th>Temperature (°C)</th>
+            <th>Feels Like (°C)</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for weather in weather_data %}
+        <tr>
+            <td>{{ weather.city_name }}</td>
+            <td>{{ weather.main }}</td>
+            <td>{{ weather.temp }}</td>
+            <td>{{ weather.feels_like }}</td>
+            <td>{{ weather.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
